@@ -45,7 +45,7 @@ namespace Catalog.Controllers
         {
             Item item = new()
             {
-                ID = Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 Name = itemDto.Name,
                 Price = itemDto.Price,
                 CreatedDate = DateTimeOffset.UtcNow,
@@ -53,7 +53,7 @@ namespace Catalog.Controllers
 
             repository.CreateItem(item);
 
-            return CreatedAtAction(nameof(GetItem), new { ID = item.ID }, item.AsDto());
+            return CreatedAtAction(nameof(GetItem), new { Id = item.Id }, item.AsDto());
         }
 
         [HttpPut("{id}")] //PUT /items/{id}

@@ -9,9 +9,9 @@ namespace Catalog.Repositories
     {
         private readonly List<Item> items = new() //NOTE target typed new expression
         {
-            new Item { ID = Guid.NewGuid(), Name = "Potion", Price = 9, CreatedDate = DateTimeOffset.UtcNow },
-            new Item { ID = Guid.NewGuid(), Name = "Iron Sword", Price = 20, CreatedDate = DateTimeOffset.UtcNow },
-            new Item { ID = Guid.NewGuid(), Name = "Bronze Shield", Price = 18, CreatedDate = DateTimeOffset.UtcNow },
+            new Item { Id = Guid.NewGuid(), Name = "Potion", Price = 9, CreatedDate = DateTimeOffset.UtcNow },
+            new Item { Id = Guid.NewGuid(), Name = "Iron Sword", Price = 20, CreatedDate = DateTimeOffset.UtcNow },
+            new Item { Id = Guid.NewGuid(), Name = "Bronze Shield", Price = 18, CreatedDate = DateTimeOffset.UtcNow },
         };
 
         public IEnumerable<Item> GetItems()
@@ -21,7 +21,7 @@ namespace Catalog.Repositories
 
         public Item GetItem(Guid id)
         {
-            return items.Where(item => item.ID == id).SingleOrDefault();
+            return items.Where(item => item.Id == id).SingleOrDefault();
         }
 
         public void CreateItem(Item item)
@@ -31,13 +31,13 @@ namespace Catalog.Repositories
 
         public void UpdateItem(Item item)
         {
-            var index = items.FindIndex(existingItem => existingItem.ID == item.ID);
+            var index = items.FindIndex(existingItem => existingItem.Id == item.Id);
             items[index] = item;
         }
 
         public void DeleteItem(Guid id)
         {
-            var index = items.FindIndex(existingItem => existingItem.ID == id);
+            var index = items.FindIndex(existingItem => existingItem.Id == id);
             items.RemoveAt(index);
         }
     }

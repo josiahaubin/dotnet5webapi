@@ -9,7 +9,7 @@ namespace Catalog
         {
             return new ItemDto
             {
-                ID = item.ID,
+                Id = item.Id,
                 Name = item.Name,
                 Price = item.Price,
                 CreatedDate = item.CreatedDate
